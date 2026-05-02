@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports
+              http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="LaporanMahasiswa"
+              pageWidth="595" pageHeight="842"
+              columnWidth="535" leftMargin="20" rightMargin="20"
+              topMargin="20" bottomMargin="20">
+
+    <parameter name="judul" class="java.lang.String">
+        <defaultValueExpression><![CDATA["Daftar Data Mahasiswa"]]></defaultValueExpression>
+    </parameter>
+
+    <queryString>
+        <![CDATA[SELECT nim, nama, semester, kelas FROM datamhs ORDER BY nim]]>
+    </queryString>
+
+    <field name="nim" class="java.lang.String"/>
+    <field name="nama" class="java.lang.String"/>
+    <field name="semester" class="java.lang.Integer"/>
+    <field name="kelas" class="java.lang.String"/>
+
+    <title>
+        <band height="60">
+            <staticText>
+                <reportElement x="0" y="0" width="535" height="30"/>
+                <textElement textAlignment="Center">
+                    <font fontName="Arial" size="16" isBold="true"/>
+                </textElement>
+                <text><![CDATA[LAPORAN DATA MAHASISWA]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="0" y="30" width="535" height="20"/>
+                <textElement textAlignment="Center">
+                    <font fontName="Arial" size="11"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{judul}]]></textFieldExpression>
+            </textField>
+        </band>
+    </title>
+
+    <columnHeader>
+        <band height="30">
+            <staticText>
+                <reportElement x="0" y="0" width="30" height="25" backcolor="#CCCCCC" mode="Opaque"/>
+                <box><pen lineWidth="0.5"/></box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Arial" size="10" isBold="true"/>
+                </textElement>
+                <text><![CDATA[No]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="30" y="0" width="130" height="25" backcolor="#CCCCCC" mode="Opaque"/>
+                <box><pen lineWidth="0.5"/></box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Arial" size="10" isBold="true"/>
+                </textElement>
+                <text><![CDATA[NIM]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="160" y="0" width="200" height="25" backcolor="#CCCCCC" mode="Opaque"/>
+                <box><pen lineWidth="0.5"/></box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Arial" size="10" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Nama]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="360" y="0" width="90" height="25" backcolor="#CCCCCC" mode="Opaque"/>
+                <box><pen lineWidth="0.5"/></box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Arial" size="10" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Semester]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="450" y="0" width="85" height="25" backcolor="#CCCCCC" mode="Opaque"/>
+                <box><pen lineWidth="0.5"/></box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Arial" size="10" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Kelas]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+
+    <detail>
+        <band height="25">
+            <textField>
+                <reportElement x="0" y="0" width="30" height="20"/>
+                <box><pen lineWidth="0.5"/></box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Arial" size="10"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="30" y="0" width="130" height="20"/>
+                <box><pen lineWidth="0.5"/></box>
+                <textElement verticalAlignment="Middle">
+                    <font fontName="Arial" size="10"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{nim}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="160" y="0" width="200" height="20"/>
+                <box><pen lineWidth="0.5"/></box>
+                <textElement verticalAlignment="Middle">
+                    <font fontName="Arial" size="10"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="360" y="0" width="90" height="20"/>
+                <box><pen lineWidth="0.5"/></box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Arial" size="10"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{semester}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="450" y="0" width="85" height="20"/>
+                <box><pen lineWidth="0.5"/></box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Arial" size="10"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{kelas}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+
+    <pageFooter>
+        <band height="25">
+            <staticText>
+                <reportElement x="0" y="0" width="300" height="20"/>
+                <textElement>
+                    <font fontName="Arial" size="9"/>
+                </textElement>
+                <text><![CDATA[Pemrograman 2 - Pertemuan 7]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="400" y="0" width="135" height="20"/>
+                <textElement textAlignment="Right">
+                    <font fontName="Arial" size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA["Halaman " + $V{PAGE_NUMBER}]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageFooter>
+
+</jasperReport>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports 
+              http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="LaporanInventory" pageWidth="595" pageHeight="842"
+              columnWidth="555" leftMargin="20" rightMargin="20"
+              topMargin="20" bottomMargin="20">
+    <queryString>
+        <![CDATA[SELECT kode_barang, nama_barang, harga, stok, (harga * stok) AS total_nilai
+                 FROM barang ORDER BY kode_barang]]>
+    </queryString>
+    <field name="kode_barang" class="java.lang.String"/>
+    <field name="nama_barang" class="java.lang.String"/>
+    <field name="harga" class="java.lang.Double"/>
+    <field name="stok" class="java.lang.Integer"/>
+    <field name="total_nilai" class="java.lang.Double"/>
+    <variable name="grandTotal" class="java.lang.Double" calculation="Sum">
+        <variableExpression><![CDATA[$F{total_nilai}]]></variableExpression>
+    </variable>
+    <variable name="totalStok" class="java.lang.Integer" calculation="Sum">
+        <variableExpression><![CDATA[$F{stok}]]></variableExpression>
+    </variable>
+    <title>
+        <band height="60">
+            <staticText>
+                <reportElement x="0" y="5" width="555" height="30"/>
+                <textElement textAlignment="Center">
+                    <font size="16" isBold="true"/>
+                </textElement>
+                <text><![CDATA[LAPORAN INVENTORY BARANG]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="35" width="555" height="20"/>
+                <textElement textAlignment="Center">
+                    <font size="10"/>
+                </textElement>
+                <text><![CDATA[Rekap Stok dan Nilai Barang]]></text>
+            </staticText>
+        </band>
+    </title>
+    <columnHeader>
+        <band height="25">
+            <staticText>
+                <reportElement x="0" y="0" width="70" height="25" backcolor="#CCCCCC"/>
+                <box><pen lineWidth="0.5"/></box>
+                <textElement textAlignment="Center"><font isBold="true"/></textElement>
+                <text><![CDATA[Kode]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="70" y="0" width="175" height="25" backcolor="#CCCCCC"/>
+                <box><pen lineWidth="0.5"/></box>
+                <textElement textAlignment="Center"><font isBold="true"/></textElement>
+                <text><![CDATA[Nama Barang]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="245" y="0" width="110" height="25" backcolor="#CCCCCC"/>
+                <box><pen lineWidth="0.5"/></box>
+                <textElement textAlignment="Center"><font isBold="true"/></textElement>
+                <text><![CDATA[Harga Satuan]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="355" y="0" width="60" height="25" backcolor="#CCCCCC"/>
+                <box><pen lineWidth="0.5"/></box>
+                <textElement textAlignment="Center"><font isBold="true"/></textElement>
+                <text><![CDATA[Stok]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="415" y="0" width="140" height="25" backcolor="#CCCCCC"/>
+                <box><pen lineWidth="0.5"/></box>
+                <textElement textAlignment="Center"><font isBold="true"/></textElement>
+                <text><![CDATA[Total Nilai]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="20">
+            <textField>
+                <reportElement x="0" y="0" width="70" height="20"/>
+                <box><pen lineWidth="0.5"/></box>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$F{kode_barang}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="70" y="0" width="175" height="20"/>
+                <box><pen lineWidth="0.5"/></box>
+                <textFieldExpression><![CDATA[$F{nama_barang}]]></textFieldExpression>
+            </textField>
+            <textField pattern="Rp #,##0">
+                <reportElement x="245" y="0" width="110" height="20"/>
+                <box><pen lineWidth="0.5"/></box>
+                <textElement textAlignment="Right"/>
+                <textFieldExpression><![CDATA[$F{harga}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="355" y="0" width="60" height="20"/>
+                <box><pen lineWidth="0.5"/></box>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$F{stok}]]></textFieldExpression>
+            </textField>
+            <textField pattern="Rp #,##0">
+                <reportElement x="415" y="0" width="140" height="20"/>
+                <box><pen lineWidth="0.5"/></box>
+                <textElement textAlignment="Right"/>
+                <textFieldExpression><![CDATA[$F{total_nilai}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    <pageFooter>
+        <band height="25">
+            <staticText>
+                <reportElement x="0" y="0" width="200" height="20"/>
+                <text><![CDATA[Dicetak oleh: Sistem Penjualan]]></text>
+            </staticText>
+            <textField pattern="dd/MM/yyyy HH:mm">
+                <reportElement x="355" y="0" width="200" height="20"/>
+                <textElement textAlignment="Right"/>
+                <textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageFooter>
+    <summary>
+        <band height="35">
+            <line>
+                <reportElement x="0" y="2" width="555" height="1"/>
+            </line>
+            <staticText>
+                <reportElement x="245" y="8" width="110" height="20"/>
+                <textElement textAlignment="Right"><font isBold="true"/></textElement>
+                <text><![CDATA[Total Stok:]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="355" y="8" width="60" height="20"/>
+                <textElement textAlignment="Center"><font isBold="true"/></textElement>
+                <textFieldExpression><![CDATA[$V{totalStok}]]></textFieldExpression>
+            </textField>
+            <textField pattern="Rp #,##0">
+                <reportElement x="415" y="8" width="140" height="20"/>
+                <box><pen lineWidth="1.0"/></box>
+                <textElement textAlignment="Right"><font isBold="true"/></textElement>
+                <textFieldExpression><![CDATA[$V{grandTotal}]]></textFieldExpression>
+            </textField>
+        </band>
+    </summary>
+</jasperReport>
