@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Hitung Nilai</title>
+</head>
+<body>
+    <h1>Menghitung Nilai</h1>
+    <form method="POST" action="MenghitungNilai">
+        <table>
+            <tr>
+                <td>Jumlah Hadir (maks 16)</td>
+                <td><input type="number" name="jumlahHadir" min="0" max="16" required/></td>
+            </tr>
+            <tr>
+                <td>Nilai UTS</td>
+                <td><input type="number" name="nilaiUTS" min="0" max="100" required/></td>
+            </tr>
+            <tr>
+                <td>Nilai UAS</td>
+                <td><input type="number" name="nilaiUAS" min="0" max="100" required/></td>
+            </tr>
+            <tr>
+                <td>Nilai Tugas</td>
+                <td><input type="number" name="nilaiTugas" min="0" max="100" required/></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Hitung Nilai"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
