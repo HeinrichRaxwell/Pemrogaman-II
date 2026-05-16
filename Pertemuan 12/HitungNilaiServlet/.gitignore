@@ -1,7 +1,0 @@
-build/
-dist/
-nbproject/private/
-*.class
-*.war
-*.jar
-nbbuild/
