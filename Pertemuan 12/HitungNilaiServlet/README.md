@@ -1,14 +1,9 @@
 # Pertemuan 12 - Pemrograman Dasar Web (Java Servlet)
 
+Nama: Haidar Reyhan
+NIM: 231011400547
 Mata Kuliah: Pemrograman II  
 Universitas Pamulang - Teknik Informatika
-
-## Deskripsi
-Aplikasi web Java Servlet untuk menghitung nilai akhir mahasiswa berdasarkan:
-- Jumlah kehadiran (bobot 10%)
-- Nilai Tugas (bobot 20%)
-- Nilai UTS (bobot 30%)
-- Nilai UAS (bobot 40%)
 
 ## Struktur Project
 ```
