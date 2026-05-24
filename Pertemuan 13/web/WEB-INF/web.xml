@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <welcome-file-list><welcome-file>index.jsp</welcome-file></welcome-file-list>
+    <servlet><servlet-name>Mahasiswa</servlet-name><jsp-file>/Mahasiswa.jsp</jsp-file></servlet>
+    <servlet-mapping><servlet-name>Mahasiswa</servlet-name><url-pattern>/Mahasiswa</url-pattern></servlet-mapping>
+    <servlet><servlet-name>MataKuliah</servlet-name><jsp-file>/MataKuliah.jsp</jsp-file></servlet>
+    <servlet-mapping><servlet-name>MataKuliah</servlet-name><url-pattern>/MataKuliah</url-pattern></servlet-mapping>
+    <servlet><servlet-name>Nilai</servlet-name><jsp-file>/Nilai.jsp</jsp-file></servlet>
+    <servlet-mapping><servlet-name>Nilai</servlet-name><url-pattern>/Nilai</url-pattern></servlet-mapping>
+    <servlet><servlet-name>LaporanNilai</servlet-name><jsp-file>/LaporanNilai.jsp</jsp-file></servlet>
+    <servlet-mapping><servlet-name>LaporanNilai</servlet-name><url-pattern>/LaporanNilai</url-pattern></servlet-mapping>
+    <servlet><servlet-name>LoginController</servlet-name><jsp-file>/LoginController.jsp</jsp-file></servlet>
+    <servlet-mapping><servlet-name>LoginController</servlet-name><url-pattern>/LoginController</url-pattern></servlet-mapping>
+</web-app>
