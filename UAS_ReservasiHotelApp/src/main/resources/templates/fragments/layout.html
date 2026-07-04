@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="id" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<!-- ============ NAVBAR FRAGMENT ============ -->
+<nav th:fragment="navbar" class="navbar navbar-expand-md navbar-hotel navbar-dark py-3">
+    <div class="container">
+        <a class="navbar-brand" th:href="@{/}">
+            <i class="bi bi-building"></i>Grand Aria Hotel
+        </a>
+        <span class="navbar-text d-none d-md-inline">
+            <i class="bi bi-mortarboard me-1"></i>Sistem Reservasi &middot; UAS Pemrograman II
+        </span>
+    </div>
+</nav>
+
+<!-- ============ FOOTER FRAGMENT ============ -->
+<footer th:fragment="footer" class="footer-hotel">
+    <div class="container">
+        <i class="bi bi-c-circle"></i> 2026 <strong>Grand Aria Hotel</strong> &mdash;
+        Aplikasi Reservasi Hotel (Spring Boot, Thymeleaf, MySQL) &mdash; Universitas Pamulang
+    </div>
+</footer>
+
+</body>
+</html>
